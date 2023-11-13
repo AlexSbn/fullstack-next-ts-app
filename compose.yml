@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    container_name: frontendnexttsapp
+    build:
+      ./
+    restart: on-failure:4
+
+    environment:
+
+      DATABASE_URL: "file:./dev.db"
+
+      ID_TOKEN_SECRET: "id-token-secret"
+      ACCESS_TOKEN_PAYLOAD: "access-token-payload"
+      ACCESS_TOKEN_SECRET: "access-token-secret"
+      COOKIE_NAME: "uid"
+
+      JSONBIN_BIN_ID: 651e9fc20574da7622b4b297 
+      JSONBIN_X_MASTER_KEY: $$2a$$10$$JxE73vgH60.K009bIoQlMuU0RTXQbF4QcCRCqyLfBAucrCJWWVkPe
+      JSONBIN_X_ACCESS_KEY: $$2a$$10$$fJU22syGSpYOa5gWbfo9HuI05hXKWqHKFkDBi7N55vUcYxiM8NfnO
+
+    ports:
+      - 4000:3000
